@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guide Parentalité Apaisée</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #f9fafb, #ffffff);
+      color: #1f2937;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1536px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+      transition: all 0.3s ease;
+      padding: 16px 0;
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(to right, #9333ea, #ec4899);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #1f2937;
+    }
+
+    /* CTA Button */
+    .cta-button {
+      display: block;
+      background: linear-gradient(to right, #9333ea, #ec4899);
+      color: white;
+      border: none;
+      font-weight: 700;
+      font-size: 1.125rem;
+      padding: 16px 32px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(147, 51, 234, 0.4);
+      background: linear-gradient(to right, #7e22ce, #db2777);
+    }
+
+    .cta-button.secondary {
+      background: white;
+      color: #9333ea;
+      border: 2px solid #9333ea;
+    }
+
+    .cta-button.secondary:hover {
+      background: #f5f3ff;
+    }
+
+    .cta-button.full-width {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 128px 0 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #111827;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #9333ea, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-paragraph {
+      font-size: 1.25rem;
+      color: #4b5563;
+      line-height: 1.7;
+      margin: 16px 0;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 32px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+    }
+
+    .feature-item {
+      display: flex;
+      margin-top: 16px;
+    }
+
+    .feature-item svg {
+      width: 20px;
+      height: 20px;
+      fill: #10b981;
+      margin-right: 12px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .feature-item p {
+      margin: 0;
+      color: #4b5563;
+    }
+
+    .feature-item .title {
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+
+    /* Guarantee Badge */
+    .guarantee-badge {
+      background: linear-gradient(to right, #ecfdf5, #d1fae5);
+      border: 1px solid #a7f3d0;
+      border-radius: 1rem;
+      padding: 24px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .guarantee-badge .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      color: #059669;
+      margin-bottom: 8px;
+    }
+
+    .guarantee-badge svg {
+      width: 24px;
+      height: 24px;
+      fill: #059669;
+    }
+
+    .guarantee-badge p {
+      color: #047857;
+      font-size: 0.875rem;
+    }
+
+    /* Cover Image */
+    .cover-container {
+      position: relative;
+    }
+
+    .cover-container img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .discount-badge span {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #9333ea;
+    }
+
+    .download-banner {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: white;
+      border-radius: 0.75rem;
+      padding: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .download-banner p {
+      font-weight: 700;
+      text-align: center;
+      color: #111827;
+    }
+
+    /* Other Sections */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 24px;
+      color: #111827;
+    }
+
+    .section-subtitle {
+      font-size: 1.25rem;
+      color: #4b5563;
+      text-align: center;
+      max-width: 75ch;
+      margin: 0 auto 48px;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .red-box, .green-box {
+      padding: 32px;
+      border-radius: 1rem;
+      border: 1px solid;
+    }
+
+    .red-box {
+      background: linear-gradient(to br, #fef2f2, #fff7ed);
+      border-color: #fca5a5;
+    }
+
+    .green-box {
+      background: linear-gradient(to br, #f0fdf4, #d1fae5);
+      border-color: #a7f3d0;
+    }
+
+    .red-box h3, .green-box h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .red-box h3 {
+      color: #b91c1c;
+    }
+
+    .green-box h3 {
+      color: #047857;
+    }
+
+    .red-box p, .green-box p {
+      color: #991b1b;
+      margin: 8px 0;
+    }
+
+    .green-box p {
+      color: #047857;
+    }
+
+    .error-item {
+      background: white;
+      border-radius: 1rem;
+      padding: 32px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e5e7eb;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .error-item:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .error-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .error-number {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(to right, #ef4444, #f97316);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .error-number span {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .error-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .result-item .icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(to right, #10b981, #059669);
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .result-item .icon svg {
+      width: 40px;
+      height: 40px;
+      fill: white;
+    }
+
+    .result-item h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .result-item p {
+      color: #4b5563;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: linear-gradient(to br, #f3f4f6, #fdf2f8);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 32px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+
+    .stars svg {
+      width: 20px;
+      height: 20px;
+      fill: #fbbf24;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #4b5563;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .testimonial-location {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: white;
+      text-align: center;
+    }
+
+    .footer-cta {
+      background: linear-gradient(to right, #9333ea, #ec4899);
+      color: white;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .footer-cta h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .footer-cta p {
+      color: #ddd6fe;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <span class="logo-text">Parentalité Apaisée</span>
+        </div>
+        <button class="cta-button secondary">Oui, je télécharge mon guide</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-title">
+            Transformez les Crises en <span>Moments de Connexion</span>
+          </h1>
+          <p class="hero-paragraph">
+            Découvrez les 5 erreurs invisibles que 97% des parents commettent sans le savoir... 
+            et apprenez les solutions scientifiques pour réduire les crises de 80% en seulement 15 jours.
+          </p>
+          <div class="feature-card">
+            <div class="feature-item">
+              <svg><use href="#check"></use></svg>
+              <div>
+                <p class="title">Réduction de 80% de la durée des crises</p>
+                <p>Des crises qui passent de 15 à 3 minutes en moyenne grâce aux techniques de co-régulation</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <svg><use href="#check"></use></svg>
+              <div>
+                <p class="title">Basé sur les neurosciences</p>
+                <p>Méthodes validées scientifiquement et adaptées au développement cérébral de l'enfant</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <svg><use href="#check"></use></svg>
+              <div>
+                <p class="title">Solutions en 5 minutes/jour</p>
+                <p>Outils simples à intégrer même pour les parents les plus occupés</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <svg><use href="#check"></use></svg>
+              <div>
+                <p class="title">Renforce le lien parent-enfant</p>
+                <p>Transforme les crises en opportunités de connexion et de compréhension</p>
+              </div>
+            </div>
+            <button class="cta-button full-width">Oui, je télécharge mon guide</button>
+            <div class="guarantee-badge">
+              <div class="title">
+                <svg><use href="#check"></use></svg>
+                <span>Garantie 30 jours</span>
+              </div>
+              <p>Satisfait ou remboursé. Aucun risque pour vous.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cover-container">
+          <div style="background:linear-gradient(to br, #e0e7ff, #fbcfe8); border-radius: 1.5rem; padding: 32px; position: relative;">
+            <div class="discount-badge">
+              <span>-80%</span>
+            </div>
+            <img 
+              src="https://i.postimg.cc/VvD4RvRg/14.png"
+              alt="Couverture du guide 'Les 5 Erreurs Qui Aggravent les Crises'"
+            />
+            <div class="download-banner">
+              <p>Téléchargez immédiatement votre copie</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Pourquoi Vos Meilleurs Efforts Aggravent-ils les Crises ?</h2>
+      <p class="section-subtitle">
+        Malgré vos bonnes intentions, des méthodes courantes comme les menaces, le marchandage et les punitions 
+        sont souvent inefficaces et peuvent même empirer la situation.
+      </p>
+      <div class="comparison-grid">
+        <div class="red-box">
+          <h3>Les Méthodes Traditionnelles</h3>
+          <p><strong>✗</strong> Menaces et punitions qui créent la peur</p>
+          <p><strong>✗</strong> Marchandage qui renforce le chantage</p>
+          <p><strong>✗</strong> Ignorer les besoins physiques cachés</p>
+          <p><strong>✗</strong> Trop parler pendant la crise</p>
+        </div>
+        <div class="green-box">
+          <h3>Les Solutions Scientifiques</h3>
+          <p><strong>✓</strong> "Non Ferme" avec règle claire</p>
+          <p><strong>✓</strong> Scan SOS pour besoins physiques</p>
+          <p><strong>✓</strong> Silence Actif pendant la crise</p>
+          <p><strong>✓</strong> Réparation Positive bienveillante</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The 5 Errors -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Les 5 Erreurs Qui Aggravent les Crises</h2>
+      <p class="section-subtitle">
+        Découvrez les comportements instinctifs que 97% des parents adoptent sans le savoir... 
+        et apprenez les solutions scientifiques pour chaque erreur.
+      </p>
+      <div id="errors-list">
+        <!-- Will be filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Résultats Attendus en 15 à 30 Jours</h2>
+      <p class="section-subtitle">
+        Avec une application régulière des méthodes du guide, voici ce que vous pouvez attendre...
+      </p>
+      <div class="results-grid">
+        <div class="result-item">
+          <div class="icon">
+            <svg><use href="#check"></use></svg>
+          </div>
+          <h3>-80% de durée des crises</h3>
+          <p>Passage de 15 minutes à 3 minutes en moyenne</p>
+        </div>
+        <div class="result-item">
+          <div class="icon">
+            <svg><use href="#check"></use></svg>
+          </div>
+          <h3>Amélioration du sommeil</h3>
+          <p>Pour l'enfant et le parent, grâce au calme retrouvé</p>
+        </div>
+        <div class="result-item">
+          <div class="icon">
+            <svg><use href="#check"></use></svg>
+          </div>
+          <h3>Climat familial apaisé</h3>
+          <p>Le sourire revient naturellement dans la famille</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">Ce Que Disent Nos Parents</h2>
+      <p class="section-subtitle">
+        Découvrez comment le guide a transformé la vie de familles à travers le monde
+      </p>
+      <div class="testimonials-grid" id="testimonials-list">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="section-title">Prêt à Transformer Vos Crises en Moments de Connexion ?</h2>
+      <p class="section-subtitle">
+        Téléchargez immédiatement votre guide complet et commencez à appliquer les méthodes scientifiques 
+        qui ont déjà transformé la vie de milliers de familles.
+      </p>
+      <div style="max-width: 320px; margin: 0 auto;">
+        <button class="cta-button full-width">Oui, je télécharge mon guide</button>
+        <div class="guarantee-badge" style="margin-top: 24px;">
+          <div class="title">
+            <svg><use href="#check"></use></svg>
+            <span>Garantie 30 jours</span>
+          </div>
+          <p>Satisfait ou remboursé. Aucun risque pour vous.</p>
+        </div>
+        <p style="color: #6b7280; font-size: 0.875rem; margin-top: 16px;">
+          Téléchargement instantané • Garantie 30 jours satisfait ou remboursé
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <footer class="footer-cta">
+    <div class="container">
+      <h3>Transformez Votre Parentalité Dès Aujourd'hui</h3>
+      <p>Rejoignez des milliers de parents qui ont déjà retrouvé la paix familiale</p>
+      <button class="cta-button secondary full-width">Oui, je télécharge mon guide</button>
+      <div style="margin-top: 24px; color: #ddd6fe; font-size: 0.875rem;">
+        <p>Garantie 30 jours • Téléchargement instantané • Support inclus</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Icons (hidden) -->
+  <svg style="display: none;">
+    <symbol id="check" viewBox="0 0 20 20">
+      <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+    </symbol>
+  </svg>
+
+  <script>
+    // Testimonials data
+    const testimonials = [
+      {
+        name: "Sophie M.",
+        location: "Paris, France",
+        text: "Après seulement 10 jours, les crises de mon fils de 5 ans sont passées de 30 minutes à moins de 5 minutes. Ce guide a transformé notre quotidien !",
+        rating: 5
+      },
+      {
+        name: "Karim T.",
+        location: "Montréal, Canada",
+        text: "En tant qu'enseignant, j'ai appliqué ces méthodes en classe. Le calme est revenu, les élèves sont plus concentrés. Un outil indispensable !",
+        rating: 5
+      },
+      {
+        name: "Léa D.",
+        location: "Genève, Suisse",
+        text: "Je me sentais coupable et épuisée. Ce guide m'a redonné confiance en moi. Mon lien avec ma fille s'est transformé en seulement 2 semaines.",
+        rating: 5
+      }
+    ];
+
+    const errors = [
+      {
+        number: "Erreur 1",
+        title: "Céder après avoir dit 'Non'",
+        solution: "Technique du 'Non Ferme' + Règle Claire",
+        impact: "Réduit l'insécurité émotionnelle de 70%"
+      },
+      {
+        number: "Erreur 2",
+        title: "Ignorer les besoins physiques cachés",
+        solution: "Le 'Scan SOS' (faim, fatigue, surexcitation)",
+        impact: "Diminue la fréquence des crises de 45%"
+      },
+      {
+        number: "Erreur 3",
+        title: "Trop parler pendant la crise",
+        solution: "Le 'Silence Actif' + changement de regard",
+        impact: "Calme l'excitation cérébrale de 60%"
+      },
+      {
+        number: "Erreur 4",
+        title: "Punir au lieu d'enseigner",
+        solution: "La 'Réparation Positive' bienveillante",
+        impact: "Améliore l'estime de soi de 80%"
+      },
+      {
+        number: "Erreur 5",
+        title: "Comparer l'enfant à d'autres",
+        solution: "Valorisation personnelle + comparaison à soi-même",
+        impact: "Réduit l'anxiété de performance de 55%"
+      }
+    ];
+
+    // Render testimonials
+    const testimonialsList = document.getElementById('testimonials-list');
+    testimonials.forEach(t => {
+      const stars = Array(t.rating).fill().map(() => 
+        `<svg class="star"><use href="#check"></use></svg>`
+      ).join('');
+      const card = document.createElement('div');
+      card.className = 'testimonial-card';
+      card.innerHTML = `
+        <div class="stars">${stars}</div>
+        <p class="testimonial-text">"${t.text}"</p>
+        <p class="testimonial-name">${t.name}</p>
+        <p class="testimonial-location">${t.location}</p>
+      `;
+      testimonialsList.appendChild(card);
+    });
+
+    // Render errors
+    const errorsList = document.getElementById('errors-list');
+    errors.forEach(error => {
+      const item = document.createElement('div');
+      item.className = 'error-item';
+      item.innerHTML = `
+        <div class="error-header">
+          <div class="error-number">
+            <span>${error.number.split(' ')[1]}</span>
+          </div>
+          <h3 class="error-title">${error.title}</h3>
+        </div>
+        <p><strong>Solution :</strong> ${error.solution}</p>
+        <p><strong>Impact :</strong> ${error.impact}</p>
+      `;
+      errorsList.appendChild(item);
+    });
+
+    // Scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+</html>
