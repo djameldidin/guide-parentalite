@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Guide Parentalité Apaisée</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <style>
@@ -17,7 +17,7 @@
       background: linear-gradient(to bottom, #f9fafb, #ffffff);
       color: #1f2937;
       line-height: 1.6;
-      transition: background 0.3s ease;
+      overflow-x: hidden;
     }
 
     .container {
@@ -33,7 +33,7 @@
       width: 100%;
       z-index: 50;
       transition: all 0.3s ease;
-      padding: 12px 0;
+      padding: 16px 0;
     }
 
     header.scrolled {
@@ -73,15 +73,8 @@
 
     .logo-text {
       font-weight: 700;
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       color: #1f2937;
-    }
-
-    .lang-switch {
-      font-size: 0.9rem;
-      color: #6b7280;
-      cursor: pointer;
-      text-decoration: underline;
     }
 
     /* CTA Button */
@@ -105,6 +98,7 @@
     .cta-button:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(147, 51, 234, 0.4);
+      background: linear-gradient(to right, #7e22ce, #db2777);
     }
 
     .cta-button.secondary {
@@ -123,7 +117,7 @@
 
     /* Hero Section */
     .hero {
-      padding: 120px 0 80px;
+      padding: 128px 0 80px;
     }
 
     .hero-grid {
@@ -159,14 +153,12 @@
       margin: 16px 0;
     }
 
-    /* Feature Card */
     .feature-card {
       background: white;
       border-radius: 1rem;
       padding: 32px;
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
       border: 1px solid #e5e7eb;
-      margin-top: 24px;
     }
 
     .feature-item {
@@ -273,7 +265,7 @@
       color: #111827;
     }
 
-    /* Sections */
+    /* Other Sections */
     section {
       padding: 80px 0;
     }
@@ -294,7 +286,6 @@
       margin: 0 auto 48px;
     }
 
-    /* Comparison */
     .comparison-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -346,7 +337,6 @@
       color: #047857;
     }
 
-    /* Errors */
     .error-item {
       background: white;
       border-radius: 1rem;
@@ -389,7 +379,6 @@
       color: #111827;
     }
 
-    /* Results */
     .results-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -511,93 +500,6 @@
       color: #ddd6fe;
       margin-bottom: 24px;
     }
-
-    /* Arabic Support */
-    [lang="ar"] {
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-
-    [lang="ar"] .hero-title,
-    [lang="ar"] .section-title {
-      font-size: 2.3rem;
-      text-align: right;
-    }
-
-    [lang="ar"] .hero-paragraph,
-    [lang="ar"] .section-subtitle {
-      text-align: right;
-      font-size: 1.3rem;
-    }
-
-    [lang="ar"] .header-content {
-      flex-direction: row-reverse;
-    }
-
-    [lang="ar"] .logo {
-      flex-direction: row-reverse;
-      gap: 12px;
-    }
-
-    [lang="ar"] .logo-text {
-      font-size: 1.2rem;
-    }
-
-    [lang="ar"] .lang-switch {
-      transform: scaleX(-1);
-    }
-
-    [lang="ar"] .feature-item {
-      flex-direction: row-reverse;
-      text-align: right;
-      gap: 12px;
-    }
-
-    [lang="ar"] .feature-item svg {
-      margin-right: 0;
-      margin-left: 12px;
-    }
-
-    [lang="ar"] .error-header {
-      flex-direction: row-reverse;
-    }
-
-    [lang="ar"] .error-number {
-      order: 2;
-    }
-
-    [lang="ar"] .error-title {
-      text-align: right;
-    }
-
-    [lang="ar"] .testimonial-text {
-      text-align: right;
-    }
-
-    [lang="ar"] .testimonial-name,
-    [lang="ar"] .testimonial-location {
-      text-align: right;
-    }
-
-    [lang="ar"] .stars {
-      justify-content: flex-end;
-    }
-
-    @media (max-width: 480px) {
-      .header-content {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: center;
-        gap: 12px;
-      }
-      .logo {
-        justify-content: center;
-      }
-      .cta-button {
-        font-size: 1rem;
-        padding: 12px 20px;
-        max-width: 100%;
-      }
-    }
   </style>
 </head>
 <body>
@@ -608,13 +510,13 @@
       <div class="header-content">
         <div class="logo">
           <div class="logo-icon">
-            <svg><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <svg viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
           </div>
           <span class="logo-text">Parentalité Apaisée</span>
         </div>
-        <div>
-          <button class="cta-button secondary" id="lang-btn">العربية</button>
-        </div>
+        <button class="cta-button secondary">Oui, je télécharge mon guide</button>
       </div>
     </div>
   </header>
@@ -625,47 +527,48 @@
       <div class="hero-grid">
         <div>
           <h1 class="hero-title">
-            حول الأزمات إلى <span>لحظات تواصل</span>
+            Transformez les Crises en <span>Moments de Connexion</span>
           </h1>
           <p class="hero-paragraph">
-            اكتشف الأخطاء الخمسة الخفية التي يرتكبها 97٪ من الآباء دون علم... وتعلم الحلول العلمية لتقليل الأزمات بنسبة 80٪ خلال 15 يومًا فقط.
+            Découvrez les 5 erreurs invisibles que 97% des parents commettent sans le savoir... 
+            et apprenez les solutions scientifiques pour réduire les crises de 80% en seulement 15 jours.
           </p>
           <div class="feature-card">
             <div class="feature-item">
               <svg><use href="#check"></use></svg>
               <div>
-                <p class="title">تقليل مدة الأزمات بنسبة 80٪</p>
-                <p>تنتقل الأزمات من 15 إلى 3 دقائق في المتوسط بفضل تقنيات التنظيم المشترك</p>
+                <p class="title">Réduction de 80% de la durée des crises</p>
+                <p>Des crises qui passent de 15 à 3 minutes en moyenne grâce aux techniques de co-régulation</p>
               </div>
             </div>
             <div class="feature-item">
               <svg><use href="#check"></use></svg>
               <div>
-                <p class="title">مبنية على علوم الأعصاب</p>
-                <p>أساليب مثبتة علميًا ومواءمة مع تطور الدماغ عند الطفل</p>
+                <p class="title">Basé sur les neurosciences</p>
+                <p>Méthodes validées scientifiquement et adaptées au développement cérébral de l'enfant</p>
               </div>
             </div>
             <div class="feature-item">
               <svg><use href="#check"></use></svg>
               <div>
-                <p class="title">حلول في 5 دقائق/يوم</p>
-                <p>أدوات بسيطة يمكن دمجها حتى للآباء الأكثر انشغالاً</p>
+                <p class="title">Solutions en 5 minutes/jour</p>
+                <p>Outils simples à intégrer même pour les parents les plus occupés</p>
               </div>
             </div>
             <div class="feature-item">
               <svg><use href="#check"></use></svg>
               <div>
-                <p class="title">تعزيز العلاقة بين الوالد والطفل</p>
-                <p>تحول الأزمات إلى فرص للتواصل والفهم</p>
+                <p class="title">Renforce le lien parent-enfant</p>
+                <p>Transforme les crises en opportunités de connexion et de compréhension</p>
               </div>
             </div>
-            <button class="cta-button full-width">نعم، أريد تحميل الدليل</button>
+            <button class="cta-button full-width">Oui, je télécharge mon guide</button>
             <div class="guarantee-badge">
               <div class="title">
                 <svg><use href="#check"></use></svg>
-                <span>ضمان 30 يومًا</span>
+                <span>Garantie 30 jours</span>
               </div>
-              <p>رضا أو استرداد الأموال. لا يوجد أي خطر عليك.</p>
+              <p>Satisfait ou remboursé. Aucun risque pour vous.</p>
             </div>
           </div>
         </div>
@@ -675,11 +578,11 @@
               <span>-80%</span>
             </div>
             <img 
-              src="https://via.placeholder.com/500x600/6366f1/FFFFFF?text=Guide+Parentalit%C3%A9" 
-              alt="غلاف الدليل"
+              src="https://i.postimg.cc/VvD4RvRg/14.png"
+              alt="Couverture du guide 'Les 5 Erreurs Qui Aggravent les Crises'"
             />
             <div class="download-banner">
-              <p>حمّل نسختك فورًا</p>
+              <p>Téléchargez immédiatement votre copie</p>
             </div>
           </div>
         </div>
@@ -690,24 +593,25 @@
   <!-- Problem Section -->
   <section>
     <div class="container">
-      <h2 class="section-title">لماذا تُفاقم جهودك تفاقم الأزمات؟</h2>
+      <h2 class="section-title">Pourquoi Vos Meilleurs Efforts Aggravent-ils les Crises ?</h2>
       <p class="section-subtitle">
-        بالرغم من نواياك الحسنة، فإن الطرق الشائعة مثل التهديدات والمساومة والعقوبات غالبًا ما تكون غير فعالة وقد تُفاقم الوضع.
+        Malgré vos bonnes intentions, des méthodes courantes comme les menaces, le marchandage et les punitions 
+        sont souvent inefficaces et peuvent même empirer la situation.
       </p>
       <div class="comparison-grid">
         <div class="red-box">
-          <h3>الأساليب التقليدية</h3>
-          <p><strong>✗</strong> التهديدات والعقوبات التي تخلق الخوف</p>
-          <p><strong>✗</strong> المساومة التي تعزز الابتزاز</p>
-          <p><strong>✗</strong> تجاهل الاحتياجات الجسدية المخفية</p>
-          <p><strong>✗</strong> الحديث الزائد خلال الأزمة</p>
+          <h3>Les Méthodes Traditionnelles</h3>
+          <p><strong>✗</strong> Menaces et punitions qui créent la peur</p>
+          <p><strong>✗</strong> Marchandage qui renforce le chantage</p>
+          <p><strong>✗</strong> Ignorer les besoins physiques cachés</p>
+          <p><strong>✗</strong> Trop parler pendant la crise</p>
         </div>
         <div class="green-box">
-          <h3>الحلول العلمية</h3>
-          <p><strong>✓</strong> "لا حاسمة" مع قاعدة واضحة</p>
-          <p><strong>✓</strong> فحص "SOS" للاحتياجات الجسدية</p>
-          <p><strong>✓</strong> الصمت النشط خلال الأزمة</p>
-          <p><strong>✓</strong> الإصلاح الإيجابي بلطف</p>
+          <h3>Les Solutions Scientifiques</h3>
+          <p><strong>✓</strong> "Non Ferme" avec règle claire</p>
+          <p><strong>✓</strong> Scan SOS pour besoins physiques</p>
+          <p><strong>✓</strong> Silence Actif pendant la crise</p>
+          <p><strong>✓</strong> Réparation Positive bienveillante</p>
         </div>
       </div>
     </div>
@@ -716,9 +620,10 @@
   <!-- The 5 Errors -->
   <section>
     <div class="container">
-      <h2 class="section-title">الأخطاء الخمسة التي تُفاقم الأزمات</h2>
+      <h2 class="section-title">Les 5 Erreurs Qui Aggravent les Crises</h2>
       <p class="section-subtitle">
-        اكتشف السلوكيات الغريزية التي يعتمدها 97٪ من الآباء دون علم... وتعلم الحلول العلمية لكل خطأ.
+        Découvrez les comportements instinctifs que 97% des parents adoptent sans le savoir... 
+        et apprenez les solutions scientifiques pour chaque erreur.
       </p>
       <div id="errors-list">
         <!-- Will be filled by JS -->
@@ -729,31 +634,31 @@
   <!-- Results -->
   <section>
     <div class="container">
-      <h2 class="section-title">النتائج المتوقعة خلال 15 إلى 30 يومًا</h2>
+      <h2 class="section-title">Résultats Attendus en 15 à 30 Jours</h2>
       <p class="section-subtitle">
-        مع التطبيق المنتظم لأساليب الدليل، إليك ما يمكنك توقعه...
+        Avec une application régulière des méthodes du guide, voici ce que vous pouvez attendre...
       </p>
       <div class="results-grid">
         <div class="result-item">
           <div class="icon">
             <svg><use href="#check"></use></svg>
           </div>
-          <h3>-80٪ من مدة الأزمات</h3>
-          <p>الانتقال من 15 دقيقة إلى 3 دقائق في المتوسط</p>
+          <h3>-80% de durée des crises</h3>
+          <p>Passage de 15 minutes à 3 minutes en moyenne</p>
         </div>
         <div class="result-item">
           <div class="icon">
             <svg><use href="#check"></use></svg>
           </div>
-          <h3>تحسن في النوم</h3>
-          <p>للطفل والوالد، بفضل الهدوء المستعاد</p>
+          <h3>Amélioration du sommeil</h3>
+          <p>Pour l'enfant et le parent, grâce au calme retrouvé</p>
         </div>
         <div class="result-item">
           <div class="icon">
             <svg><use href="#check"></use></svg>
           </div>
-          <h3>مناخ أسري هادئ</h3>
-          <p>يعود الابتسام بشكل طبيعي إلى العائلة</p>
+          <h3>Climat familial apaisé</h3>
+          <p>Le sourire revient naturellement dans la famille</p>
         </div>
       </div>
     </div>
@@ -762,9 +667,9 @@
   <!-- Testimonials -->
   <section class="testimonials">
     <div class="container">
-      <h2 class="section-title">ما يقوله آباؤنا</h2>
+      <h2 class="section-title">Ce Que Disent Nos Parents</h2>
       <p class="section-subtitle">
-        اكتشف كيف غير الدليل حياة العائلات في جميع أنحاء العالم
+        Découvrez comment le guide a transformé la vie de familles à travers le monde
       </p>
       <div class="testimonials-grid" id="testimonials-list">
         <!-- Filled by JS -->
@@ -775,21 +680,22 @@
   <!-- CTA Section -->
   <section class="cta-section">
     <div class="container">
-      <h2 class="section-title">مستعد لتحويل أزماتك إلى لحظات تواصل؟</h2>
+      <h2 class="section-title">Prêt à Transformer Vos Crises en Moments de Connexion ?</h2>
       <p class="section-subtitle">
-        حمّل فورًا دليلك الكامل وابدأ في تطبيق الأساليب العلمية التي غيّرت بالفعل حياة آلاف العائلات.
+        Téléchargez immédiatement votre guide complet et commencez à appliquer les méthodes scientifiques 
+        qui ont déjà transformé la vie de milliers de familles.
       </p>
       <div style="max-width: 320px; margin: 0 auto;">
-        <button class="cta-button full-width">نعم، أريد تحميل الدليل</button>
+        <button class="cta-button full-width">Oui, je télécharge mon guide</button>
         <div class="guarantee-badge" style="margin-top: 24px;">
           <div class="title">
             <svg><use href="#check"></use></svg>
-            <span>ضمان 30 يومًا</span>
+            <span>Garantie 30 jours</span>
           </div>
-          <p>رضا أو استرداد الأموال. لا يوجد أي خطر عليك.</p>
+          <p>Satisfait ou remboursé. Aucun risque pour vous.</p>
         </div>
         <p style="color: #6b7280; font-size: 0.875rem; margin-top: 16px;">
-          تحميل فوري • ضمان 30 يومًا • دعم متضمن
+          Téléchargement instantané • Garantie 30 jours satisfait ou remboursé
         </p>
       </div>
     </div>
@@ -798,16 +704,16 @@
   <!-- Footer CTA -->
   <footer class="footer-cta">
     <div class="container">
-      <h3>غيّر والديتك ابتداءً من اليوم</h3>
-      <p>انضم إلى آلاف الآباء الذين استعادوا الهدوء العائلي</p>
-      <button class="cta-button secondary full-width">نعم، أريد تحميل الدليل</button>
+      <h3>Transformez Votre Parentalité Dès Aujourd'hui</h3>
+      <p>Rejoignez des milliers de parents qui ont déjà retrouvé la paix familiale</p>
+      <button class="cta-button secondary full-width">Oui, je télécharge mon guide</button>
       <div style="margin-top: 24px; color: #ddd6fe; font-size: 0.875rem;">
-        <p>ضمان 30 يومًا • تحميل فوري • دعم متضمن</p>
+        <p>Garantie 30 jours • Téléchargement instantané • Support inclus</p>
       </div>
     </div>
   </footer>
 
-  <!-- Icons -->
+  <!-- Icons (hidden) -->
   <svg style="display: none;">
     <symbol id="check" viewBox="0 0 20 20">
       <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
@@ -815,62 +721,62 @@
   </svg>
 
   <script>
-    // بيانات التقييمات
+    // Testimonials data
     const testimonials = [
       {
-        name: "سفيان م.",
-        location: "باريس، فرنسا",
-        text: "بعد 10 أيام فقط، تراجعت نوبات ابني البالغ من العمر 5 سنوات من 30 دقيقة إلى أقل من 5 دقائق. هذا الدليل غيّر حياتنا اليومية!",
+        name: "Sophie M.",
+        location: "Paris, France",
+        text: "Après seulement 10 jours, les crises de mon fils de 5 ans sont passées de 30 minutes à moins de 5 minutes. Ce guide a transformé notre quotidien !",
         rating: 5
       },
       {
-        name: "كريم ت.",
-        location: "مونتريال، كندا",
-        text: "كمدرس، طبقت هذه الأساليب في الفصل. عاد الهدوء، وازداد تركيز التلاميذ. أداة لا غنى عنها!",
+        name: "Karim T.",
+        location: "Montréal, Canada",
+        text: "En tant qu'enseignant, j'ai appliqué ces méthodes en classe. Le calme est revenu, les élèves sont plus concentrés. Un outil indispensable !",
         rating: 5
       },
       {
-        name: "ليا د.",
-        location: "جنيف، سويسرا",
-        text: "شعرت بالذنب والإرهاق. أعطاني هذا الدليل الثقة مجددًا. تغيرت علاقتي مع ابنتي خلال أسبوعين فقط.",
+        name: "Léa D.",
+        location: "Genève, Suisse",
+        text: "Je me sentais coupable et épuisée. Ce guide m'a redonné confiance en moi. Mon lien avec ma fille s'est transformé en seulement 2 semaines.",
         rating: 5
       }
     ];
 
     const errors = [
       {
-        number: "الخطأ 1",
-        title: "التراجع بعد قول 'لا'",
-        solution: "تقنية 'لا حاسمة' + قاعدة واضحة",
-        impact: "يقلل من انعدام الأمن العاطفي بنسبة 70٪"
+        number: "Erreur 1",
+        title: "Céder après avoir dit 'Non'",
+        solution: "Technique du 'Non Ferme' + Règle Claire",
+        impact: "Réduit l'insécurité émotionnelle de 70%"
       },
       {
-        number: "الخطأ 2",
-        title: "تجاهل الاحتياجات الجسدية المخفية",
-        solution: "فحص 'SOS' (الجوع، التعب، الإثارة الزائدة)",
-        impact: "يقلل من تكرار الأزمات بنسبة 45٪"
+        number: "Erreur 2",
+        title: "Ignorer les besoins physiques cachés",
+        solution: "Le 'Scan SOS' (faim, fatigue, surexcitation)",
+        impact: "Diminue la fréquence des crises de 45%"
       },
       {
-        number: "الخطأ 3",
-        title: "الكثير من الحديث خلال الأزمة",
-        solution: "الصمت النشط + تغيير النظر",
-        impact: "يهدئ من التحفيز الدماغي بنسبة 60٪"
+        number: "Erreur 3",
+        title: "Trop parler pendant la crise",
+        solution: "Le 'Silence Actif' + changement de regard",
+        impact: "Calme l'excitation cérébrale de 60%"
       },
       {
-        number: "الخطأ 4",
-        title: "العقاب بدل التعليم",
-        solution: "الإصلاح الإيجابي بلطف",
-        impact: "يحسن احترام الذات بنسبة 80٪"
+        number: "Erreur 4",
+        title: "Punir au lieu d'enseigner",
+        solution: "La 'Réparation Positive' bienveillante",
+        impact: "Améliore l'estime de soi de 80%"
       },
       {
-        number: "الخطأ 5",
-        title: "مقارنة الطفل بآخرين",
-        solution: "التقدير الشخصي + المقارنة مع الذات",
-        impact: "يقلل من القلق الأدائي بنسبة 55٪"
+        number: "Erreur 5",
+        title: "Comparer l'enfant à d'autres",
+        solution: "Valorisation personnelle + comparaison à soi-même",
+        impact: "Réduit l'anxiété de performance de 55%"
       }
     ];
 
-    // عرض التقييمات
+    // Render testimonials
     const testimonialsList = document.getElementById('testimonials-list');
     testimonials.forEach(t => {
       const stars = Array(t.rating).fill().map(() => 
@@ -887,7 +793,7 @@
       testimonialsList.appendChild(card);
     });
 
-    // عرض الأخطاء
+    // Render errors
     const errorsList = document.getElementById('errors-list');
     errors.forEach(error => {
       const item = document.createElement('div');
@@ -899,33 +805,19 @@
           </div>
           <h3 class="error-title">${error.title}</h3>
         </div>
-        <p><strong>الحل:</strong> ${error.solution}</p>
-        <p><strong>الأثر:</strong> ${error.impact}</p>
+        <p><strong>Solution :</strong> ${error.solution}</p>
+        <p><strong>Impact :</strong> ${error.impact}</p>
       `;
       errorsList.appendChild(item);
     });
 
-    // التمرير
+    // Scroll effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 100);
-    });
-
-    // تبديل اللغة
-    const body = document.body;
-    const langBtn = document.getElementById('lang-btn');
-    let isArabic = false;
-
-    langBtn.addEventListener('click', () => {
-      isArabic = !isArabic;
-      if (isArabic) {
-        body.setAttribute('lang', 'ar');
-        body.setAttribute('dir', 'rtl');
-        langBtn.textContent = 'Français';
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
       } else {
-        body.removeAttribute('lang');
-        body.removeAttribute('dir');
-        langBtn.textContent = 'العربية';
+        header.classList.remove('scrolled');
       }
     });
   </script>
